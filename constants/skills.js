@@ -1,0 +1,78 @@
+export const SKILLS = [
+  {
+    category: 'Frontend',
+    icon: 'fa-code',
+    items: [
+      { name: 'React.js',    hot: true  },
+      { name: 'Next.js',     hot: true  },
+      { name: 'TypeScript',  hot: false },
+      { name: 'JavaScript',  hot: true  },
+      { name: 'HTML5',       hot: false },
+      { name: 'CSS3',        hot: false },
+      { name: 'Tailwind CSS',hot: false },
+      { name: 'Redux',       hot: false },
+    ],
+  },
+  {
+    category: 'Backend',
+    icon: 'fa-server',
+    items: [
+      { name: 'Node.js',    hot: true  },
+      { name: 'Express.js', hot: true  },
+      { name: 'Python',     hot: true  },
+      { name: 'Django',     hot: false },
+      { name: 'Flask',      hot: false },
+      { name: 'REST APIs',  hot: false },
+      { name: 'JWT Auth',   hot: false },
+    ],
+  },
+  {
+    category: 'Database',
+    icon: 'fa-database',
+    items: [
+      { name: 'MongoDB',    hot: true  },
+      { name: 'MySQL',      hot: false },
+      { name: 'PostgreSQL', hot: false },
+      { name: 'Firebase',   hot: false },
+      { name: 'Mongoose',   hot: false },
+      { name: 'Redis',      hot: false },
+    ],
+  },
+  {
+    category: 'AI / ML',
+    icon: 'fa-brain',
+    items: [
+      { name: 'Python',       hot: true  },
+      { name: 'scikit-learn', hot: true  },
+      { name: 'pandas',       hot: false },
+      { name: 'NumPy',        hot: false },
+      { name: 'Matplotlib',   hot: false },
+      { name: 'Jupyter',      hot: false },
+    ],
+  },
+  {
+    category: 'Tools & DevOps',
+    icon: 'fa-wrench',
+    items: [
+      { name: 'Git & GitHub', hot: true  },
+      { name: 'Docker',       hot: false },
+      { name: 'Vercel',       hot: false },
+      { name: 'Postman',      hot: false },
+      { name: 'VS Code',      hot: false },
+      { name: 'Linux',        hot: false },
+      { name: 'Figma',        hot: false },
+    ],
+  },
+  {
+    category: 'Cloud & More',
+    icon: 'fa-cloud',
+    items: [
+      { name: 'AWS Basics',  hot: false },
+      { name: 'Cloudinary',  hot: false },
+      { name: 'Socket.io',   hot: true  },
+      { name: 'GraphQL',     hot: false },
+      { name: 'Vite',        hot: false },
+      { name: 'Netlify',     hot: false },
+    ],
+  },
+];

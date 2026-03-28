@@ -1,0 +1,74 @@
+/* ============================================================
+   DESIGN TOKENS — DARK GRADIENT / PREMIUM PURPLE
+   ============================================================ */
+:root {
+  /* Backgrounds */
+  --bg-base:      #07071a;
+  --bg-surface:   #0d0d2b;
+  --bg-card:      rgba(255, 255, 255, 0.04);
+  --bg-card-hover:rgba(255, 255, 255, 0.07);
+
+  /* Brand / Accent */
+  --purple:       #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-dim:   #4c1d95;
+  --indigo:       #4f46e5;
+  --indigo-light: #818cf8;
+  --blue-accent:  #38bdf8;
+  --gold:         #f59e0b;
+
+  /* Gradients */
+  --grad-brand:   linear-gradient(135deg, #7c3aed, #4f46e5);
+  --grad-text:    linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #38bdf8 100%);
+  --grad-hero:    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,58,237,0.35) 0%, transparent 70%);
+  --grad-card:    linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.05));
+  --grad-section: linear-gradient(180deg, transparent, rgba(124,58,237,0.04), transparent);
+
+  /* Glass */
+  --glass-border: 1px solid rgba(167,139,250,0.12);
+  --glass-border-hover: 1px solid rgba(167,139,250,0.3);
+
+  /* Text */
+  --text-primary:   #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Layout */
+  --section-py:    9rem;
+  --container-px:  2.5rem;
+  --max-width:     1160px;
+  --radius-sm:     8px;
+  --radius-md:     16px;
+  --radius-lg:     24px;
+
+  /* Shadows */
+  --shadow-card:  0 4px 24px rgba(0,0,0,0.3);
+  --shadow-glow:  0 0 40px rgba(124,58,237,0.2);
+  --shadow-purple:0 8px 32px rgba(124,58,237,0.25);
+
+  /* Transitions */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:  cubic-bezier(0.16, 1, 0.3, 1);
+  --dur:          0.3s;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-py:   5.5rem;
+    --container-px: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-py:   4.5rem;
+    --container-px: 1rem;
+    --radius-lg:    16px;
+    --radius-md:    12px;
+  }
+}

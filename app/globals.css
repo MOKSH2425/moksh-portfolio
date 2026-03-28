@@ -1,0 +1,174 @@
+@import '../styles/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* ─── RESET ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html   { scroll-behavior: smooth; }
+body   {
+  font-family: var(--font-body);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img    { max-width: 100%; display: block; }
+a      { color: inherit; text-decoration: none; }
+ul     { list-style: none; }
+button { font-family: var(--font-body); }
+input, textarea { font-family: var(--font-body); }
+
+/* ─── SCROLLBAR ──────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--purple-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple); }
+
+/* ─── SELECTION ──────────────────────────── */
+::selection { background: rgba(124,58,237,0.4); color: #fff; }
+
+/* ─── CONTAINER ──────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-px);
+}
+
+/* ─── SECTION ────────────────────────────── */
+.section {
+  padding: var(--section-py) 0;
+  position: relative;
+}
+
+/* ─── GLASS CARD ─────────────────────────── */
+.glassCard {
+  background: var(--grad-card);
+  border: var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  transition: border-color var(--dur) var(--ease),
+              background var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              transform var(--dur) var(--ease-spring);
+}
+.glassCard:hover {
+  border-color: rgba(167,139,250,0.28);
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(79,70,229,0.07));
+  box-shadow: var(--shadow-glow);
+}
+
+/* ─── GRADIENT TEXT ──────────────────────── */
+.gradText {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── BUTTONS ────────────────────────────── */
+.btnPrimary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem; font-weight: 600;
+  color: #fff;
+  background: var(--grad-brand);
+  padding: 0.72rem 1.8rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  box-shadow: var(--shadow-purple);
+  transition: opacity var(--dur), transform var(--dur) var(--ease-spring), box-shadow var(--dur);
+  cursor: pointer;
+}
+.btnPrimary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(124,58,237,0.4);
+}
+
+.btnGhost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem; font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  padding: 0.72rem 1.8rem;
+  border-radius: var(--radius-sm);
+  border: var(--glass-border);
+  transition: color var(--dur), border-color var(--dur), transform var(--dur) var(--ease-spring);
+  cursor: pointer;
+}
+.btnGhost:hover {
+  color: var(--purple-light);
+  border-color: rgba(167,139,250,0.4);
+  transform: translateY(-2px);
+}
+
+/* ─── SECTION HEADING ────────────────────── */
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sectionSub {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  max-width: 54ch;
+  line-height: 1.75;
+  margin-bottom: 3.5rem;
+}
+
+/* ─── GLOBAL RESPONSIVE ──────────────────── */
+@media (max-width: 768px) {
+  .section      { padding: 5.5rem 0; }
+  .sectionTitle { letter-spacing: -0.01em; margin-bottom: 0.75rem; }
+  .sectionSub   { font-size: 0.95rem; margin-bottom: 2.4rem; max-width: 100%; }
+  .btnPrimary   { font-size: 0.88rem !important; padding: 0.65rem 1.5rem !important; }
+  .btnGhost     { font-size: 0.88rem !important; padding: 0.65rem 1.5rem !important; }
+}
+
+@media (max-width: 480px) {
+  .section      { padding: 4.5rem 0; }
+  .sectionTitle { letter-spacing: 0; line-height: 1.12; }
+  .sectionSub   { font-size: 0.88rem; margin-bottom: 2rem; }
+  .glassCard    { border-radius: 12px !important; }
+}
+
+/* ─── ANIMATIONS ─────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.25); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes gradShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes rotateSlow {
+  to { transform: rotate(360deg); }
+}
