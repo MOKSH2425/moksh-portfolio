@@ -108,7 +108,7 @@ export const EDUCATION = [
 ];
 
 export const SOCIALS = [
-  { icon: 'fab fa-github',   href: 'https://github.com/mokshshah',      label: 'GitHub'   },
-  { icon: 'fab fa-linkedin', href: 'https://linkedin.com/in/mokshshah', label: 'LinkedIn' },
+  { icon: 'fab fa-github',   href: 'https://github.com/MOKSH2425',      label: 'GitHub'   },
+  { icon: 'fab fa-linkedin', href: 'https://www.linkedin.com/in/moksh-shah-7aa9ba3a9', label: 'LinkedIn' },
   { icon: 'fas fa-envelope', href: 'mailto:shahmoksh7@gmail.com',        label: 'Email'    },
 ];
