@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
 /* ============================================================
    DESIGN TOKENS — inlined for reliable Vercel builds
    ============================================================ */
@@ -32,9 +35,9 @@
   --font-body:      'DM Sans', sans-serif;
   --font-mono:      'JetBrains Mono', monospace;
 
-  --section-py:     9rem;
+  --section-py:     7rem;
   --container-px:   2.5rem;
-  --max-width:      1160px;
+  --max-width:      1080px;
   --radius-sm:      8px;
   --radius-md:      16px;
   --radius-lg:      24px;
@@ -170,35 +173,35 @@ input, textarea { font-family: var(--font-body); }
 /* ─── SECTION HEADING ────────────────────── */
 .sectionTitle {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
 .sectionSub {
-  font-size: 1.02rem;
+  font-size: 0.97rem;
   color: var(--text-secondary);
-  max-width: 54ch;
+  max-width: 52ch;
   line-height: 1.75;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 
 /* ─── GLOBAL RESPONSIVE ──────────────────── */
 @media (max-width: 768px) {
-  .section      { padding: 5.5rem 0; }
-  .sectionTitle { letter-spacing: -0.01em; margin-bottom: 0.75rem; }
-  .sectionSub   { font-size: 0.95rem; margin-bottom: 2.4rem; max-width: 100%; }
-  .btnPrimary   { font-size: 0.88rem !important; padding: 0.65rem 1.5rem !important; }
-  .btnGhost     { font-size: 0.88rem !important; padding: 0.65rem 1.5rem !important; }
+  .section      { padding: 5rem 0; }
+  .sectionTitle { font-size: clamp(1.6rem, 5vw, 2.2rem); margin-bottom: 0.75rem; }
+  .sectionSub   { font-size: 0.92rem; margin-bottom: 2rem; max-width: 100%; }
+  .btnPrimary   { font-size: 0.88rem !important; padding: 0.65rem 1.4rem !important; }
+  .btnGhost     { font-size: 0.88rem !important; padding: 0.65rem 1.4rem !important; }
 }
 
 @media (max-width: 480px) {
-  .section      { padding: 4.5rem 0; }
-  .sectionTitle { letter-spacing: 0; line-height: 1.12; }
-  .sectionSub   { font-size: 0.88rem; margin-bottom: 2rem; }
+  .section      { padding: 4rem 0; }
+  .sectionTitle { font-size: clamp(1.5rem, 6vw, 2rem); line-height: 1.2; }
+  .sectionSub   { font-size: 0.88rem; margin-bottom: 1.8rem; }
   .glassCard    { border-radius: 12px !important; }
 }
 
