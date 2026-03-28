@@ -6,16 +6,16 @@ import SectionBadge from '@/components/ui/SectionBadge/SectionBadge';
 import styles from './Contact.module.css';
 
 const INFO = [
-  { icon: 'fa-envelope',     label: 'Email',    value: 'shahmoksh7@gmail.com', href: 'mailto:shahmoksh7@gmail.com' },
-  { icon: 'fa-phone',        label: 'Phone',    value: '+91 63534 44388',       href: 'tel:+916353444388'            },
-  { icon: 'fa-location-dot', label: 'Location', value: 'Surat, Gujarat, India', href: null                          },
-  { icon: 'fa-clock',        label: 'Timezone', value: 'IST (UTC +5:30)',       href: null                          },
+  { icon: 'fa-envelope', label: 'Email', value: 'shahmoksh7@gmail.com', href: 'mailto:shahmoksh7@gmail.com' },
+  { icon: 'fa-phone', label: 'Phone', value: '+91 63534 44388', href: 'tel:+916353444388' },
+  { icon: 'fa-location-dot', label: 'Location', value: 'Surat, Gujarat, India', href: null },
+  { icon: 'fa-clock', label: 'Timezone', value: 'IST (UTC +5:30)', href: null },
 ];
 
 export default function Contact() {
-  const headRef  = useReveal({ from: { opacity: 0, y: 36 }, stagger: 0.1 });
-  const leftRef  = useReveal({ from: { opacity: 0, x: -46 }, stagger: 0.12, start: 'top 88%' });
-  const rightRef = useReveal({ from: { opacity: 0, x:  46 }, stagger: 0.12, start: 'top 88%' });
+  const headRef = useReveal({ from: { opacity: 0, y: 36 }, stagger: 0.1 });
+  const leftRef = useReveal({ from: { opacity: 0, x: -46 }, stagger: 0.12, start: 'top 88%' });
+  const rightRef = useReveal({ from: { opacity: 0, x: 46 }, stagger: 0.12, start: 'top 88%' });
 
   const formRef = useRef(null);
   const [status, setStatus] = useState('');
@@ -25,11 +25,12 @@ export default function Contact() {
     setStatus('sending');
     // TODO: Replace timeout with real endpoint (Formspree / EmailJS)
     const res = await fetch('https://formspree.io/f/mpqoqllp', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(Object.fromEntries(new FormData(formRef.current))),
-});
-setStatus(res.ok ? 'sent' : '');
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(formRef.current))),
+    });
+    setStatus(res.ok ? 'sent' : '');
+  };
 
   return (
     <section className={`${styles.contact} section`} id="contact">
@@ -61,19 +62,19 @@ setStatus(res.ok ? 'sent' : '');
                   <li key={label}>
                     {href
                       ? <a href={href} className={styles.infoRow}>
-                          <span className={styles.infoIcon}><i className={`fa-solid ${icon}`} /></span>
-                          <span className={styles.infoBody}>
-                            <span className={styles.infoLabel}>{label}</span>
-                            <span className={styles.infoValue}>{value}</span>
-                          </span>
-                        </a>
+                        <span className={styles.infoIcon}><i className={`fa-solid ${icon}`} /></span>
+                        <span className={styles.infoBody}>
+                          <span className={styles.infoLabel}>{label}</span>
+                          <span className={styles.infoValue}>{value}</span>
+                        </span>
+                      </a>
                       : <div className={styles.infoRow}>
-                          <span className={styles.infoIcon}><i className={`fa-solid ${icon}`} /></span>
-                          <span className={styles.infoBody}>
-                            <span className={styles.infoLabel}>{label}</span>
-                            <span className={styles.infoValue}>{value}</span>
-                          </span>
-                        </div>
+                        <span className={styles.infoIcon}><i className={`fa-solid ${icon}`} /></span>
+                        <span className={styles.infoBody}>
+                          <span className={styles.infoLabel}>{label}</span>
+                          <span className={styles.infoValue}>{value}</span>
+                        </span>
+                      </div>
                     }
                   </li>
                 ))}
@@ -82,7 +83,7 @@ setStatus(res.ok ? 'sent' : '');
               <div className={styles.socialRow}>
                 {SOCIALS.map(({ icon, href, label }) => (
                   <a key={label} href={href} target="_blank" rel="noreferrer"
-                     className={styles.socialBtn} aria-label={label}>
+                    className={styles.socialBtn} aria-label={label}>
                     <i className={icon} />
                   </a>
                 ))}
