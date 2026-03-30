@@ -35,7 +35,7 @@ export default function Education() {
               <div className={`${styles.card} glassCard`}>
                 <div className={styles.cardTop}>
                   <span className={`${styles.statusPill} ${status === 'ongoing' ? styles.pillActive : styles.pillDone}`}>
-                    {status === 'ongoing' ? '● In Progress' : '✓ Completed'}
+                    {status === 'ongoing' ? '● In Progress' : '✓ Graduated'}
                   </span>
                   <span className={styles.period}>{period}</span>
                 </div>

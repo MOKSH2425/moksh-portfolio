@@ -96,7 +96,7 @@ export default function Projects() {
 
         <div className={styles.more}>
           <p>Plus many more mini-projects and experiments</p>
-          <a href="https://github.com/mokshshah" target="_blank" rel="noreferrer" className="btnGhost">
+          <a href="https://github.com/MOKSH2425" target="_blank" rel="noreferrer" className="btnGhost">
             <i className="fab fa-github" /> View All on GitHub
           </a>
         </div>

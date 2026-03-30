@@ -55,8 +55,8 @@ export default function Hero() {
 
         {/* Description */}
         <p className={styles.desc}>
-          BTech CSE student from <strong>Surat, India</strong> — building full-stack
-          web apps, shipping ML models, and crafting experiences people enjoy using.
+          Full-Stack Developer & ML Enthusiast with hands-on experience in the MERN stack and Python.
+          Focused on engineering scalable web architectures and deploying predictive machine learning models.
         </p>
 
         {/* CTA buttons */}

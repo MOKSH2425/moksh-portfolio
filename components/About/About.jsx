@@ -26,16 +26,10 @@ export default function About() {
               <span className="gradText">solves real problems</span>
             </h2>
             <p className={styles.bio}>
-              Hey! I&apos;m <strong>Moksh Shah</strong>, a passionate BTech CSE student
-              from Surat, India obsessed with building things that live on the internet.
-              From ML-powered recommendation systems to full-stack dashboards, I love
-              turning ideas into real, deployed products.
+              Hey! I&apos;m <strong>Moksh Shah</strong>, a Computer Science engineering student (Class of 2027) who bridges the gap between complex algorithms and intuitive user interfaces.
             </p>
             <p className={styles.bio}>
-              Currently pursuing my <strong>B.Tech in Computer Science</strong> (graduating
-              2027) — I spend my time outside class building projects, exploring new
-              technologies, and contributing to open source. I believe great software
-              is equal parts logic and craft.
+              From architecting scalable React/Node.js dashboards to training predictive scikit-learn recommendation systems, I specialize in transforming conceptual ideas into deployed, production-ready products. I believe great software is equal parts logic and craft.
             </p>
 
             <div className={styles.traits}>
