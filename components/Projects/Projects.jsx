@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PROJECTS } from '@/constants/index';
 import { useReveal } from '@/hooks/useGSAP';
 import SectionBadge from '@/components/ui/SectionBadge/SectionBadge';
@@ -76,6 +76,9 @@ export default function Projects() {
   const headRef = useReveal({ from: { opacity: 0, y: 36 }, stagger: 0.1 });
   const gridRef = useReveal({ from: { opacity: 0, y: 52 }, stagger: 0.1, start: 'top 86%' });
 
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 4);
+
   return (
     <section className={`${styles.projects} section`} id="projects">
       <div className={styles.bgAccent} aria-hidden />
@@ -91,15 +94,16 @@ export default function Projects() {
         </div>
 
         <div ref={gridRef} className={styles.grid}>
-          {PROJECTS.map((p, i) => <ProjectCard key={p.id} project={p} index={i} />)}
+          {displayedProjects.map((p, i) => <ProjectCard key={p.id} project={p} index={i} />)}
         </div>
 
-        <div className={styles.more}>
-          <p>Plus many more mini-projects and experiments</p>
-          <a href="https://github.com/MOKSH2425" target="_blank" rel="noreferrer" className="btnGhost">
-            <i className="fab fa-github" /> View All on GitHub
-          </a>
-        </div>
+        {PROJECTS.length > 4 && (
+          <div className={styles.more}>
+            <button className="btnGhost" onClick={() => setShowAll(!showAll)}>
+              {showAll ? 'Show Less' : 'View More Projects'}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
