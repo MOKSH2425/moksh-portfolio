@@ -97,11 +97,11 @@ export default function Contact() {
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label htmlFor="name">Your Name</label>
-                  <input id="name" name="name" type="text" placeholder="John Doe" required />
+                  <input id="name" name="name" type="text" placeholder="Your Name" required />
                 </div>
                 <div className={styles.field}>
                   <label htmlFor="email">Email Address</label>
-                  <input id="email" name="email" type="email" placeholder="john@example.com" required />
+                  <input id="email" name="email" type="email" placeholder="user@example.com" required />
                 </div>
               </div>
 

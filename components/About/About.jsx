@@ -46,7 +46,7 @@ export default function About() {
               >
                 Let&apos;s Connect <i className="fa-solid fa-arrow-right" />
               </a>
-              <a href="/assets/resume.pdf" className="btnGhost" download>
+              <a href="/assets/RESUME_MOKSH.pdf" className="btnGhost" download>
                 Resume <i className="fa-solid fa-download" />
               </a>
             </div>

@@ -52,7 +52,7 @@ export const PROJECTS = [
     description: 'Architected a full-stack turf marketplace with three role layers and 15+ pages. Engineered slot picker with double-booking prevention, automated refund calculation, and live card UI. Deployed via Vercel with GitHub-integrated CI/CD pipeline.',
     tags: ['MERN', 'JWT', 'RBAC', 'Vercel CI/CD'],
     badge: 'Full Stack',
-    live: '#',
+    live: 'https://turf-booking-tan.vercel.app',
     featured: true,
   },
   {
