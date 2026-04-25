@@ -58,9 +58,6 @@ function ProjectCard({ project, index }) {
 
       {/* Links */}
       <div className={styles.links}>
-        <a href={project.github} target="_blank" rel="noreferrer" className={styles.linkBtn}>
-          <i className="fab fa-github" /> Code
-        </a>
         <a href={project.live} target="_blank" rel="noreferrer" className={`${styles.linkBtn} ${styles.linkLive}`}>
           <i className="fa-solid fa-arrow-up-right-from-square" /> Live Demo
         </a>
