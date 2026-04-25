@@ -61,7 +61,7 @@ export const PROJECTS = [
     description: 'Built an institute management platform covering student records, batch scheduling, attendance tracking, and real-time analytics dashboards. Implemented RBAC for admin and student portals with Chart.js-powered visual reporting.',
     tags: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Chart.js'],
     badge: 'Full Stack',
-    live: '#',
+    live: 'https://coaching-web-ten.vercel.app/',
     featured: false,
   },
   {
@@ -70,7 +70,7 @@ export const PROJECTS = [
     description: 'Trained ML models for 40-60 diseases, achieving 70-80% accuracy, and exposed predictions via a Flask REST API. Implemented Agile sprint cycles to deliver features bi-weekly, improving time-to-market by 20%.',
     tags: ['Python', 'scikit-learn', 'Flask', 'pandas'],
     badge: 'AI / ML',
-    live: '#',
+    live: 'https://smartmed-fullstack.vercel.app/',
     featured: false,
   },
   {
@@ -79,7 +79,7 @@ export const PROJECTS = [
     description: 'Designed and delivered a client-facing showcase website for a real-estate developer group — responsive, brand-focused frontend presenting residential project portfolios.',
     tags: ['React.js', 'Tailwind CSS', 'Responsive'],
     badge: 'Frontend',
-    live: '#',
+    live: 'https://pixelforgex-developer.vercel.app/',
     featured: false,
   },
   {
@@ -88,7 +88,7 @@ export const PROJECTS = [
     description: 'Crafted an immersive brand experience with GSAP-powered scroll animations and an animated menu showcase, demonstrating high-quality UI and motion design.',
     tags: ['HTML5', 'CSS3', 'JavaScript', 'GSAP'],
     badge: 'Frontend',
-    live: '#',
+    live: 'https://aura-coffee-theta.vercel.app/',
     featured: false,
   },
 ];
