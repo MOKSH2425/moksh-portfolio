@@ -7,10 +7,12 @@ import Education from '@/components/Education/Education';
 import Contact   from '@/components/Contact/Contact';
 import Footer    from '@/components/Footer/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton/WhatsAppButton';
+import ImmersiveBackground from '@/components/ui/ImmersiveBackground/ImmersiveBackground';
 
 export default function Home() {
   return (
     <>
+      <ImmersiveBackground />
       <Navbar />
       <main>
         <Hero />

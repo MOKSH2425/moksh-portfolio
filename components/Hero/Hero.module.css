@@ -7,46 +7,19 @@
 }
 
 /* ── Background ── */
-.mesh {
-  position: absolute; inset: 0;
-  background: var(--grad-hero);
-  pointer-events: none;
-}
-
-.meshOrb1 {
+.heroShade {
   position: absolute;
-  top: -20%; left: -10%;
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%);
-  border-radius: 50%;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 54% at 30% 28%, rgba(124,58,237,0.16), transparent 68%),
+    linear-gradient(90deg, rgba(3,5,17,0.2), transparent 45%, rgba(3,5,17,0.24));
   pointer-events: none;
-  animation: floatY 8s ease-in-out infinite;
-}
-
-.meshOrb2 {
-  position: absolute;
-  bottom: -15%; right: -5%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(79,70,229,0.14) 0%, transparent 65%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: floatY 10s ease-in-out infinite reverse;
-}
-
-/* Subtle dot grid */
-.grid {
-  position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(167,139,250,0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
 
 /* ── Content ── */
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding-top: 100px;
   padding-bottom: 80px;
   display: flex;
@@ -59,8 +32,10 @@
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 0.8rem; font-weight: 500;
   color: var(--purple-light);
-  background: rgba(124,58,237,0.1);
-  border: 1px solid rgba(124,58,237,0.22);
+  background: rgba(10, 12, 30, 0.46);
+  border: 1px solid rgba(167,139,250,0.24);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 0.35rem 1rem;
   border-radius: 100px;
   margin-bottom: 2rem;
@@ -158,9 +133,12 @@
 .socialLink {
   width: 40px; height: 40px;
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.11);
   border-radius: var(--radius-sm);
   color: var(--text-muted);
+  background: rgba(7, 7, 26, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-size: 0.95rem;
   transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s var(--ease-spring);
 }
@@ -198,8 +176,6 @@
 
 /* Large mobile / small tablet */
 @media (max-width: 768px) {
-  .meshOrb1 { width: 400px; height: 400px; top: -10%; left: -20%; }
-  .meshOrb2 { width: 350px; height: 350px; }
   .content  { padding-top: 100px; padding-bottom: 60px; }
   .badge    { font-size: 0.72rem; padding: 0.28rem 0.85rem; }
   .sub      { font-size: 1rem; flex-wrap: wrap; gap: 0; }

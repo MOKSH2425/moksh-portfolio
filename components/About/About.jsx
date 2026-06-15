@@ -7,8 +7,8 @@ import styles from './About.module.css';
 const TRAITS = ['Problem Solver', 'Team Player', 'Fast Learner', 'Detail Oriented', 'Open Source Enthusiast'];
 
 export default function About() {
-  const leftRef  = useReveal({ from: { opacity: 0, x: -50 }, stagger: 0.13 });
-  const rightRef = useReveal({ from: { opacity: 0, x:  50 }, stagger: 0.11 });
+  const leftRef  = useReveal({ from: { opacity: 0, y: 34 }, stagger: 0.13 });
+  const rightRef = useReveal({ from: { opacity: 0, y: 34 }, stagger: 0.11 });
 
   return (
     <section className={`${styles.about} section`} id="about">
@@ -56,7 +56,14 @@ export default function About() {
           <div ref={rightRef} className={styles.right}>
             {/* Photo card */}
             <div className={`${styles.photoCard} glassCard`}>
-              <img src="/assets/img/moksh.jpg" alt="Moksh Shah" className={styles.photo} />
+              <img
+                src="/assets/img/moksh.jpg"
+                alt="Moksh Shah"
+                className={styles.photo}
+                width="900"
+                height="675"
+                decoding="async"
+              />
               <div className={styles.photoOrb} aria-hidden />
             </div>
 

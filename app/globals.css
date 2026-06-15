@@ -6,9 +6,9 @@
    ============================================================ */
 :root {
   --bg-base:        #07071a;
-  --bg-surface:     #0d0d2b;
-  --bg-card:        rgba(255, 255, 255, 0.04);
-  --bg-card-hover:  rgba(255, 255, 255, 0.07);
+  --bg-surface:     rgba(13, 13, 43, 0.72);
+  --bg-card:        rgba(12, 14, 36, 0.52);
+  --bg-card-hover:  rgba(20, 23, 54, 0.66);
 
   --purple:         #7c3aed;
   --purple-light:   #a78bfa;
@@ -21,11 +21,11 @@
   --grad-brand:     linear-gradient(135deg, #7c3aed, #4f46e5);
   --grad-text:      linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #38bdf8 100%);
   --grad-hero:      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124,58,237,0.35) 0%, transparent 70%);
-  --grad-card:      linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.05));
+  --grad-card:      linear-gradient(135deg, rgba(124,58,237,0.12), rgba(15,23,42,0.5) 48%, rgba(56,189,248,0.06));
   --grad-section:   linear-gradient(180deg, transparent, rgba(124,58,237,0.04), transparent);
 
-  --glass-border:       1px solid rgba(167,139,250,0.12);
-  --glass-border-hover: 1px solid rgba(167,139,250,0.3);
+  --glass-border:       1px solid rgba(167,139,250,0.16);
+  --glass-border-hover: 1px solid rgba(167,139,250,0.34);
 
   --text-primary:   #f1f5f9;
   --text-secondary: #94a3b8;
@@ -72,7 +72,7 @@
 html   { scroll-behavior: smooth; }
 body   {
   font-family: var(--font-body);
-  background: var(--bg-base);
+  background: #030511;
   color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
@@ -104,15 +104,17 @@ input, textarea { font-family: var(--font-body); }
 .section {
   padding: var(--section-py) 0;
   position: relative;
+  background: transparent;
 }
 
 /* ─── GLASS CARD ─────────────────────────── */
 .glassCard {
   background: var(--grad-card);
   border: var(--glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
   border-radius: var(--radius-md);
+  box-shadow: 0 12px 42px rgba(0,0,0,0.26), inset 0 1px 0 rgba(255,255,255,0.06);
   transition: border-color var(--dur) var(--ease),
               background var(--dur) var(--ease),
               box-shadow var(--dur) var(--ease),
@@ -120,8 +122,13 @@ input, textarea { font-family: var(--font-body); }
 }
 .glassCard:hover {
   border-color: rgba(167,139,250,0.28);
-  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(79,70,229,0.07));
+  background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(15,23,42,0.62) 48%, rgba(56,189,248,0.08));
   box-shadow: var(--shadow-glow);
+}
+
+main {
+  position: relative;
+  z-index: 1;
 }
 
 /* ─── GRADIENT TEXT ──────────────────────── */

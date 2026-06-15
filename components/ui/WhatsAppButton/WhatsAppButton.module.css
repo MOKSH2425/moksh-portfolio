@@ -1,7 +1,7 @@
 .waButton {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: calc(25px + env(safe-area-inset-bottom, 0px));
+  right: calc(25px + env(safe-area-inset-right, 0px));
   width: 55px;
   height: 55px;
   background: linear-gradient(135deg, #25D366, #128C7E);
@@ -46,10 +46,10 @@
 
 @media (max-width: 768px) {
   .waButton {
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    font-size: 26px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    width: 46px;
+    height: 46px;
+    font-size: 24px;
   }
 }

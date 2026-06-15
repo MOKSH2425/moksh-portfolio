@@ -1,4 +1,4 @@
-.education { background: var(--bg-base); overflow: hidden; }
+.education { background: rgba(7, 7, 26, 0.18); overflow: hidden; }
 
 .bgAccent {
   position: absolute; inset: 0;

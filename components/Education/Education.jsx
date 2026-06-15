@@ -6,7 +6,7 @@ import styles from './Education.module.css';
 
 export default function Education() {
   const headRef = useReveal({ from: { opacity: 0, y: 36 }, stagger: 0.1 });
-  const bodyRef = useReveal({ from: { opacity: 0, x: -40 }, stagger: 0.18, start: 'top 85%' });
+  const bodyRef = useReveal({ from: { opacity: 0, y: 34 }, stagger: 0.18, start: 'top 85%' });
 
   return (
     <section className={`${styles.education} section`} id="education">

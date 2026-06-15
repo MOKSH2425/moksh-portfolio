@@ -22,8 +22,10 @@ export function useReveal({
       ctx = gsap.context(() => {
         gsap.from(ref.current.children, {
           ...from, duration, stagger, ease: 'power3.out',
-          scrollTrigger: { trigger: ref.current, start, once: true },
+          clearProps: 'transform',
+          scrollTrigger: { trigger: ref.current, start, once: true, invalidateOnRefresh: true },
         });
+        requestAnimationFrame(() => ScrollTrigger.refresh());
       }, ref);
     })();
     return () => ctx?.revert();
@@ -53,8 +55,10 @@ export function useRevealEl({
       ctx = gsap.context(() => {
         gsap.from(ref.current, {
           ...from, duration, delay, ease: 'power3.out',
-          scrollTrigger: { trigger: ref.current, start, once: true },
+          clearProps: 'transform',
+          scrollTrigger: { trigger: ref.current, start, once: true, invalidateOnRefresh: true },
         });
+        requestAnimationFrame(() => ScrollTrigger.refresh());
       }, ref);
     })();
     return () => ctx?.revert();

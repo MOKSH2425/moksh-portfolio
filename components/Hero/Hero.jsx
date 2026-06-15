@@ -25,11 +25,7 @@ export default function Hero() {
 
   return (
     <section className={styles.hero} id="home" ref={heroRef}>
-      {/* Gradient mesh background */}
-      <div className={styles.mesh} aria-hidden />
-      <div className={styles.meshOrb1} aria-hidden />
-      <div className={styles.meshOrb2} aria-hidden />
-      <div className={styles.grid} aria-hidden />
+      <div className={styles.heroShade} aria-hidden />
 
       <div className={`container ${styles.content}`}>
         {/* Availability badge */}

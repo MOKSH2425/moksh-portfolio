@@ -1,4 +1,4 @@
-.projects { background: var(--bg-base); overflow: hidden; }
+.projects { background: rgba(7, 7, 26, 0.2); overflow: hidden; }
 
 .bgAccent {
   position: absolute; inset: 0;

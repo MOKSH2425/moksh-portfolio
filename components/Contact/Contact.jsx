@@ -14,8 +14,8 @@ const INFO = [
 
 export default function Contact() {
   const headRef = useReveal({ from: { opacity: 0, y: 36 }, stagger: 0.1 });
-  const leftRef = useReveal({ from: { opacity: 0, x: -46 }, stagger: 0.12, start: 'top 88%' });
-  const rightRef = useReveal({ from: { opacity: 0, x: 46 }, stagger: 0.12, start: 'top 88%' });
+  const leftRef = useReveal({ from: { opacity: 0, y: 34 }, stagger: 0.12, start: 'top 88%' });
+  const rightRef = useReveal({ from: { opacity: 0, y: 34 }, stagger: 0.12, start: 'top 88%' });
 
   const formRef = useRef(null);
   const [status, setStatus] = useState('');
@@ -92,7 +92,7 @@ export default function Contact() {
           </div>
 
           {/* ── Right: form ── */}
-          <div ref={rightRef}>
+          <div ref={rightRef} className={styles.formWrap}>
             <form ref={formRef} className={`${styles.form} glassCard`} onSubmit={handleSubmit} noValidate>
               <div className={styles.row}>
                 <div className={styles.field}>
