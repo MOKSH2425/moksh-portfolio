@@ -47,6 +47,11 @@ export default function ImmersiveBackground() {
     '--phase': phase,
     '--mx': pointer.x,
     '--my': pointer.y,
+    // Intro configuration (can be tuned): duration in ms and multiplier boosts
+    '--intro-duration': 900,
+    '--intro-speed-boost': 0.5,
+    '--intro-alpha-boost': 0.45,
+    '--intro-size-boost': 0.28,
   };
 
   const [introZoom, setIntroZoom] = useState(1.03);

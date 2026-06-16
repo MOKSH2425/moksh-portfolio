@@ -40,15 +40,28 @@ export default function ParticleCanvas() {
       alpha: Math.random() * 0.32 + 0.16,
     }));
 
+    const rootStyles = getComputedStyle(document.documentElement);
+    const introDuration = parseFloat(rootStyles.getPropertyValue('--intro-duration')) || 900; // ms
+    const speedBoost = parseFloat(rootStyles.getPropertyValue('--intro-speed-boost')) || 0.5;
+    const alphaBoost = parseFloat(rootStyles.getPropertyValue('--intro-alpha-boost')) || 0.45;
+    const sizeBoost = parseFloat(rootStyles.getPropertyValue('--intro-size-boost')) || 0.28;
     const introStart = performance.now();
-    const introDuration = 900; // ms
+
+    // signal intro start to other components and add a root class for CSS sync
+    try { document.documentElement.classList.add('intro-running'); } catch (e) {}
+    try { window.dispatchEvent(new CustomEvent('intro-start')); } catch (e) {}
+    const introTimeout = setTimeout(() => {
+      try { document.documentElement.classList.remove('intro-running'); } catch (e) {}
+      try { document.documentElement.classList.add('intro-done'); } catch (e) {}
+      try { window.dispatchEvent(new CustomEvent('intro-done')); } catch (e) {}
+    }, introDuration);
 
     const draw = () => {
       const now = performance.now();
       const tRaw = Math.min(1, (now - introStart) / introDuration);
       const t = 1 - Math.pow(1 - tRaw, 3); // ease-out cubic
-      const speedMul = 1 + (1 - t) * 0.5; // subtle speed increase at start
-      const alphaMul = 1 + (1 - t) * 0.45; // subtle brightness at start
+      const speedMul = 1 + (1 - t) * speedBoost; // subtle speed increase at start
+      const alphaMul = 1 + (1 - t) * alphaBoost; // subtle brightness at start
       ctx.clearRect(0, 0, W, H);
 
       for (let i = 0; i < particles.length; i++) {
@@ -79,7 +92,7 @@ export default function ParticleCanvas() {
         }
 
         ctx.beginPath();
-        const r = p.r * (1 + (1 - t) * 0.28);
+        const r = p.r * (1 + (1 - t) * sizeBoost);
         ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
         const a = Math.min(1, p.alpha * alphaMul);
         ctx.fillStyle = p.hue === 'cyan'
@@ -98,6 +111,9 @@ export default function ParticleCanvas() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', resize);
+      clearTimeout(introTimeout);
+      try { document.documentElement.classList.remove('intro-running'); } catch (e) {}
+      try { document.documentElement.classList.remove('intro-done'); } catch (e) {}
     };
   }, []);
 

@@ -69,6 +69,23 @@
   background-clip: text;
   background-size: 200% 200%;
   animation: gradShift 5s ease infinite;
+  /* subtle pop/fade that syncs with the immersive intro */
+  transform: scale(0.994);
+  opacity: 0.94;
+  transition: transform var(--intro-duration, 900ms) cubic-bezier(0.2,0.9,0.2,1),
+              opacity var(--intro-duration, 900ms) ease;
+}
+
+/* When the intro runs on the hero element, the name softly scales to 1 */
+:global(.intro-running) .headingName {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Ensure completed state is settled */
+:global(.intro-done) .headingName {
+  transform: scale(1);
+  opacity: 1;
 }
 
 /* Typed */
