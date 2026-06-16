@@ -49,8 +49,26 @@ export default function ImmersiveBackground() {
     '--my': pointer.y,
   };
 
+  const [introZoom, setIntroZoom] = useState(1.03);
+
+  useEffect(() => {
+    const duration = 900;
+    const start = performance.now();
+    let rafId;
+    const tick = () => {
+      const now = performance.now();
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = 1.03 - eased * 0.03; // animate from 1.03 -> 1
+      setIntroZoom(val);
+      if (t < 1) rafId = requestAnimationFrame(tick);
+    };
+    tick();
+    return () => { if (rafId) cancelAnimationFrame(rafId); };
+  }, []);
+
   return (
-    <div className={styles.stage} style={style} aria-hidden>
+    <div className={styles.stage} style={{ ...style, '--intro-zoom': introZoom }} aria-hidden>
       <div className={styles.aurora} />
       <div className={styles.orbOne} />
       <div className={styles.orbTwo} />

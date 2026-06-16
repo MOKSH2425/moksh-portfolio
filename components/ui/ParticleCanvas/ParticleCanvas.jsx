@@ -40,7 +40,15 @@ export default function ParticleCanvas() {
       alpha: Math.random() * 0.32 + 0.16,
     }));
 
+    const introStart = performance.now();
+    const introDuration = 900; // ms
+
     const draw = () => {
+      const now = performance.now();
+      const tRaw = Math.min(1, (now - introStart) / introDuration);
+      const t = 1 - Math.pow(1 - tRaw, 3); // ease-out cubic
+      const speedMul = 1 + (1 - t) * 0.5; // subtle speed increase at start
+      const alphaMul = 1 + (1 - t) * 0.45; // subtle brightness at start
       ctx.clearRect(0, 0, W, H);
 
       for (let i = 0; i < particles.length; i++) {
@@ -51,7 +59,7 @@ export default function ParticleCanvas() {
           if (dist < linkDistance) {
             const strength = 1 - dist / linkDistance;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(116, 210, 255, ${0.11 * strength})`;
+            ctx.strokeStyle = `rgba(116, 210, 255, ${0.11 * strength * Math.min(1.4, alphaMul)})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -62,8 +70,8 @@ export default function ParticleCanvas() {
 
       particles.forEach(p => {
         if (!reducedMotion) {
-          p.x += p.vx;
-          p.y += p.vy;
+          p.x += p.vx * speedMul;
+          p.y += p.vy * speedMul;
           if (p.x < -20) p.x = W + 20;
           if (p.x > W + 20) p.x = -20;
           if (p.y < -20) p.y = H + 20;
@@ -71,10 +79,12 @@ export default function ParticleCanvas() {
         }
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        const r = p.r * (1 + (1 - t) * 0.28);
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        const a = Math.min(1, p.alpha * alphaMul);
         ctx.fillStyle = p.hue === 'cyan'
-          ? `rgba(103, 232, 249, ${p.alpha})`
-          : `rgba(167, 139, 250, ${p.alpha})`;
+          ? `rgba(103, 232, 249, ${a})`
+          : `rgba(167, 139, 250, ${a})`;
         ctx.shadowBlur  = 10;
         ctx.shadowColor = p.hue === 'cyan' ? '#67e8f9' : '#a78bfa';
         ctx.fill();
