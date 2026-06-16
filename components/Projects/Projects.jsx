@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { PROJECTS } from '@/constants/index';
 import { useReveal } from '@/hooks/useGSAP';
 import SectionBadge from '@/components/ui/SectionBadge/SectionBadge';
+import ProjectModal from './ProjectModal';
 import styles from './Projects.module.css';
 
 const BADGE_COLORS = {
@@ -11,7 +12,7 @@ const BADGE_COLORS = {
   'Frontend':   styles.badgeIndigo,
 };
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onOpen }) {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -36,6 +37,10 @@ function ProjectCard({ project, index }) {
     <div
       ref={cardRef}
       className={`${styles.card} ${project.featured ? styles.cardFeatured : ''} glassCard`}
+      onClick={() => onOpen && onOpen(project)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter') onOpen && onOpen(project); }}
     >
       {/* Number */}
       <span className={styles.num}>0{project.id}</span>
@@ -58,7 +63,13 @@ function ProjectCard({ project, index }) {
 
       {/* Links */}
       <div className={styles.links}>
-        <a href={project.live} target="_blank" rel="noreferrer" className={`${styles.linkBtn} ${styles.linkLive}`}>
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noreferrer"
+          className={`${styles.linkBtn} ${styles.linkLive}`}
+          onClick={(e) => e.stopPropagation()}
+        >
           <i className="fa-solid fa-arrow-up-right-from-square" /> Live Demo
         </a>
       </div>
@@ -74,7 +85,11 @@ export default function Projects() {
   const gridRef = useReveal({ from: { opacity: 0, y: 52 }, stagger: 0.1, start: 'top 86%' });
 
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   const displayedProjects = showAll ? PROJECTS : PROJECTS.slice(0, 4);
+
+  const openProject = (p) => setSelectedProject(p);
+  const closeProject = () => setSelectedProject(null);
 
   return (
     <section className={`${styles.projects} section`} id="projects">
@@ -91,8 +106,14 @@ export default function Projects() {
         </div>
 
         <div ref={gridRef} className={styles.grid}>
-          {displayedProjects.map((p, i) => <ProjectCard key={p.id} project={p} index={i} />)}
+          {displayedProjects.map((p, i) => (
+            <ProjectCard key={p.id} project={p} index={i} onOpen={openProject} />
+          ))}
         </div>
+
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={closeProject} />
+        )}
 
         {PROJECTS.length > 4 && (
           <div className={styles.more}>
