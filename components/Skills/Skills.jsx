@@ -23,7 +23,7 @@ export default function Skills() {
         </div>
 
         <div ref={gridRef} className={styles.grid}>
-          {SKILLS.map(({ category, icon, items, highlight }) => (
+          {SKILLS.map(({ category, icon, items, highlight, proficiency }) => (
             <div key={category} className={`${styles.card} glassCard`}>
               <div className={styles.cardHead}>
                 <div className={`${styles.iconBox} ${highlight ? styles.iconHighlight : ''}`}>
@@ -31,6 +31,13 @@ export default function Skills() {
                 </div>
                 <h3 className={styles.catName}>{category}</h3>
               </div>
+
+              {/* Progress bar for category proficiency */}
+              <div className={styles.progWrap} aria-hidden>
+                <div className={styles.progBar} style={{ width: `${proficiency || 65}%` }} />
+                <div className={styles.progLabel}>{proficiency || 65}%</div>
+              </div>
+
               <div className={styles.pills}>
                 {items.map(item => (
                   <span key={item} className={styles.pill}>{item}</span>

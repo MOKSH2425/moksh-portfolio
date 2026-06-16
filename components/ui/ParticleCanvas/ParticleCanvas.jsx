@@ -62,12 +62,27 @@ export default function ParticleCanvas() {
 
       particles.forEach(p => {
         if (!reducedMotion) {
+          // subtle attraction toward a focus point set via CSS variables
+          const rootStyle = getComputedStyle(document.documentElement);
+          const fx = parseFloat(rootStyle.getPropertyValue('--particle-focus-x')) || 0.5;
+          const fy = parseFloat(rootStyle.getPropertyValue('--particle-focus-y')) || 0.35;
+          const focusX = fx * W;
+          const focusY = fy * H;
+          // attraction strength scales with particle size and device
+          const attraction = (p.r * 0.0009) * (isMobile ? 0.6 : 1.0);
+          p.vx += (focusX - p.x) * attraction;
+          p.vy += (focusY - p.y) * attraction;
+
+          // apply velocity and simple bounds wrap
           p.x += p.vx;
           p.y += p.vy;
           if (p.x < -20) p.x = W + 20;
           if (p.x > W + 20) p.x = -20;
           if (p.y < -20) p.y = H + 20;
           if (p.y > H + 20) p.y = -20;
+          // damp velocities slightly for stability
+          p.vx *= 0.985;
+          p.vy *= 0.985;
         }
 
         ctx.beginPath();

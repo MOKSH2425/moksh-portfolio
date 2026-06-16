@@ -21,6 +21,27 @@ export default function Hero() {
     })();
   }, []);
 
+  // set particle focus point to hero center so background emphasizes hero
+  useEffect(() => {
+    const setFocus = () => {
+      const el = heroRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = (rect.left + rect.width / 2) / window.innerWidth;
+      const y = (rect.top + rect.height / 2) / window.innerHeight;
+      document.documentElement.style.setProperty('--particle-focus-x', String(x));
+      document.documentElement.style.setProperty('--particle-focus-y', String(y));
+    };
+
+    setFocus();
+    window.addEventListener('resize', setFocus);
+    window.addEventListener('scroll', setFocus, { passive: true });
+    return () => {
+      window.removeEventListener('resize', setFocus);
+      window.removeEventListener('scroll', setFocus);
+    };
+  }, []);
+
   const scrollTo = (id) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
