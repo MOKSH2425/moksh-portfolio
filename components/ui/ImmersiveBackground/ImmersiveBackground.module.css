@@ -21,7 +21,7 @@
     radial-gradient(circle at 46% 74%, rgba(79, 70, 229, 0.16), transparent 26%);
   filter: blur(36px);
   opacity: calc(0.68 + (var(--phase) * 0.18));
-  transform: scale(var(--intro-zoom, 1)) translate3d(calc(var(--mx) * -14px), calc(var(--my) * -10px), 0);
+  transform: translate3d(calc(var(--mx) * -14px), calc(var(--my) * -10px), 0);
 }
 
 .aurora {

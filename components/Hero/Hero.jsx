@@ -21,47 +21,6 @@ export default function Hero() {
     })();
   }, []);
 
-  // set particle focus point to hero center so background emphasizes hero
-  useEffect(() => {
-    const setFocus = () => {
-      const el = heroRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const x = (rect.left + rect.width / 2) / window.innerWidth;
-      const y = (rect.top + rect.height / 2) / window.innerHeight;
-      document.documentElement.style.setProperty('--particle-focus-x', String(x));
-      document.documentElement.style.setProperty('--particle-focus-y', String(y));
-    };
-
-    setFocus();
-    window.addEventListener('resize', setFocus);
-    window.addEventListener('scroll', setFocus, { passive: true });
-    return () => {
-      window.removeEventListener('resize', setFocus);
-      window.removeEventListener('scroll', setFocus);
-    };
-  }, []);
-
-  // Sync subtle intro state from ParticleCanvas: add/remove classes on the hero element
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el) return;
-    const onStart = () => {
-      el.classList.add('intro-running');
-      el.classList.remove('intro-done');
-    };
-    const onDone = () => {
-      el.classList.remove('intro-running');
-      el.classList.add('intro-done');
-    };
-    window.addEventListener('intro-start', onStart);
-    window.addEventListener('intro-done', onDone);
-    return () => {
-      window.removeEventListener('intro-start', onStart);
-      window.removeEventListener('intro-done', onDone);
-    };
-  }, []);
-
   const scrollTo = (id) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
